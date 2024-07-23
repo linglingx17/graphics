@@ -1,0 +1,26 @@
+int dht, temp;
+#define mo 2
+#define dt A0
+void setup ()
+{
+  pinMode(mo, OUTPUT);
+  pinMode(dt, INPUT);
+  Serial.begin(9600);
+}
+ 
+void loop ()
+{
+  dht = analogRead(dt);
+  //Serial.print("temp = ");
+  //Serial.println(dht);
+  temp = map(dht,20,358,-40,125);
+  Serial.print("temp = ");
+  Serial.print(temp) ;
+  Serial.println(" c ");
+if(temp > 39){
+   digitalWrite(2,HIGH);
+}
+else{
+  digitalWrite(2,LOW);};
+ delay(2000);
+}
